@@ -7,10 +7,6 @@ import { Router } from '@angular/router';
 @Injectable()
 export class UserService {
 
-    // ====================================================
-    // This service emulates user register, login, delete
-    // ====================================================
-
     constructor(private router: Router) {}
 
 
@@ -18,7 +14,6 @@ export class UserService {
     registerUser(user: User): boolean {
         localStorage.setItem('user', JSON.stringify(user));
         this.router.navigate(['/login']);
-        console.log('new user is registered');
         return true;
     }
 
@@ -40,8 +35,6 @@ export class UserService {
 
     clearLocalStorage(): boolean{
        localStorage.clear();
-        console.log('local storage was cleared');
-
        return true;
     }
 

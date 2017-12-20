@@ -21,8 +21,6 @@ export class LoginComponent implements OnInit {
     regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
-
-
     constructor(private fb: FormBuilder,
                 private userService: UserService) { }
 

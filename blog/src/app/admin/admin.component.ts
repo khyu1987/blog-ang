@@ -47,8 +47,6 @@ export class AdminComponent implements OnInit {
         post => post.user.email === this.currentUser.email);
     }
 
-    console.log('user posts  - - -'+this.user_posts);
-
     this.buildPostForm();
     this.buildEditForm();
 

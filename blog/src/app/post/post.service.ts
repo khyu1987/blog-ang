@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Observable';
 
 import { User} from '../user/user.model';
 import { Post} from './post.model';
@@ -9,28 +6,7 @@ import { Post} from './post.model';
 @Injectable()
 export class PostService {
 
-    // ====================================================
-    // This service emulates post adding, editing, deleting
-    // ====================================================
-
-
-
-
-    constructor(private http: HttpClient) {}
-
-
-
-
-    // getPosts():Promise<any> {
-    //     return this.http.get('https://jsonplaceholder.typicode.com/posts')
-    //     .toPromise()
-    //     .then((res) => {
-    //         return res;
-    //     });
-    // };
-
-
-
+    constructor() {}
 
 
     addPostToStorage(post:Post){
@@ -39,9 +15,6 @@ export class PostService {
         posts.push(post);
         
         localStorage.setItem('posts', JSON.stringify(posts));
-
-        console.log('success post adding, posts ---' + posts);
-
     };
 
 
@@ -58,7 +31,6 @@ export class PostService {
         posts[postForEditing] = post;
 
         localStorage.setItem('posts', JSON.stringify(posts));
-        console.log('success post editing');
     };
 
 
@@ -71,7 +43,6 @@ export class PostService {
         posts.splice(postForDeleting, 1);
 
         localStorage.setItem('posts', JSON.stringify(posts));
-        console.log('success post deleting');
     };
 
 }

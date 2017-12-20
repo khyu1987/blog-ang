@@ -61,10 +61,8 @@ export class CommentComponent implements OnInit {
         this.new_comment.post = this.currentPost;
 
         this.commentService.addCommentToStorage(this.new_comment);
-        // this.comments.push(this.new_comment);
-        console.log(this.new_comment);
-
-       this.comments = this.commentService.getLocalComments().filter(
+ 
+        this.comments = this.commentService.getLocalComments().filter(
           comment => comment.post.title === this.currentPost.title);
     }
 
