@@ -1,0 +1,33 @@
+<br>
+<br>
+<p class="text-right">
+  <a class="btn btn-xs btn-info" (click)="showCommentInput()" >My comment</a>
+</p>
+
+
+<div *ngIf="comments">
+  <blockquote class="h6" *ngFor="let comment of comments">
+    <p>{{comment.body}}<p>
+      <footer>{{comment.user.email}}</footer>
+    </blockquote>
+  </div>
+
+  <form [formGroup]="commentForm" *ngIf="addingComment">
+   <div class="form-group">
+    <input type="text" required class="form-control" formControlName="comment" placeholder="Your comment">
+
+    <div *ngIf="commentForm.get('comment').invalid && ( commentForm.get('comment').dirty || commentForm.get('comment').touched )"
+    class="alert alert-danger">
+    <div *ngIf="commentForm.get('comment').errors.required">
+      Comment is required.
+    </div>
+    <div *ngIf="commentForm.get('comment').errors.maxlength">
+      Comment is too long.
+    </div>
+  </div>
+</div>
+<p class="text-right">
+ <button type="submit" class="btn btn-xs btn-primary" [disabled]="commentForm.invalid" (click)="addComment()">Add</button>
+</p>
+</form>
+
